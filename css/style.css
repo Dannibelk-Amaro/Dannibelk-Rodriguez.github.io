@@ -424,7 +424,7 @@ h3{
 .dark-mode .section-title,
 .dark-mode h3,
 .dark-mode .about-body p{
-    color: var(--text-color-light);
+    color: var(--bg-color-light);
 }
 
 .dark-mode .js h3{
