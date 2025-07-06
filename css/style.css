@@ -1,13 +1,19 @@
-*{
-    color: #333;
-    font-family:  'Tahoma', 'Arial', sans-serif, 'Helvetica', 'Verdana';
-}
-
-body{
-    background: linear-gradient(#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a0c4ff);
+:root {
+    --bg-linear-gradient: linear-gradient(#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a0c4ff);
+    --color-text: #333;
+    --font-family: 'Tahoma', 'Arial', sans-serif, 'Helvetica', 'Verdana';
+    --bg-color-alfa: #c3c2c23a;
+    --bg-color-dark: #222;
+    --bg-color-light: #f1f1f1a0;
+    --text-color-dark: #b5b5b5;
+    --shadow-color: #00000010;
+    --bg-color-light: #eee;
+    --bg-footer: #363535b0;
 }
 
 .container{
+    font-family:  var(--font-family);
+    background: var(--bg-linear-gradient);
     width: 100vw;
     max-width: 1200px;
     height: 100vh;
@@ -32,8 +38,8 @@ body{
     align-items: center;
     flex-direction: column;
 
-    background-color: #c3c2c23a;
-    box-shadow: 10px 0 20px 0 #0000001a;
+    background-color: var(--bg-color-alfa);
+    box-shadow: 10px 0 20px 0 var(--shadow-color);
 }
 
 .header-profile{
@@ -69,7 +75,7 @@ body{
 
 .ul-header{
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     margin: 0;
     padding-left: .5rem;
     list-style: none;
@@ -84,7 +90,6 @@ body{
     width: 100%;
     height: 3rem;
     text-align: center;
-    color: #555;
     font-size: 1rem;
     padding-left: .5rem;
 
@@ -95,14 +100,35 @@ body{
 
 .link{
     text-decoration: none;
-    color: #555;
     margin-left: 5px;
-
+    color: var(--color-text);
 }
 
 .list-items:hover{
-    background-color: #00000010;
+    background-color: var(--shadow-color);
     border-radius: 50px 0 0 50px;
+}
+
+.ul-header-dark{
+    width: 100%;
+    height: 10vh;
+    margin: 0;
+    padding-left: .5rem;
+    list-style: none;
+    line-height: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.link-dark{
+    text-decoration: none;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    background-color: var(--bg-color-light);
+    padding: 5px 10px;
+    border-radius: 50%;
 }
 
 .main{
@@ -118,8 +144,8 @@ body{
     width: 95%;
     padding: 1rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid #00000010;
-    background-color: #c3c2c23a;
+    border-bottom: 1px solid var(--shadow-color);
+    background-color: var(--bg-color-alfa);
     border-radius: 20px;
 
     display: flex;
@@ -130,6 +156,44 @@ body{
     line-height: 2rem;
     text-align: center;
     font-size: .75rem;
+}
+
+.section-about{
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.about{
+    width: 100%;
+    height: auto;
+    font-size: .8rem;
+    text-align: justify;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-head{
+    width: 100%;
+    height: auto;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.about-head h3{
+    margin: 0;
+    color: var(--color-text);
+}
+
+.about-body{
+    height: auto;
+    font-size: .8rem;
+    text-align: justify;
+    line-height: 1.5rem;
+    margin-left: 20px;
 }
 
 .section-card{
@@ -146,10 +210,10 @@ body{
     width: 90%;
     max-width:250px;
     height: 300px;
-    background-color: #eee;
+    background-color: var(--bg-color-light);
     border-radius: 12px;
     padding: 4px;
-    box-shadow: 0 0 10px #0000001a;
+    box-shadow: 0 0 10px var(--shadow-color);
     margin-bottom: 1rem;
 
     display: flex;
@@ -233,11 +297,11 @@ body{
 }
 
 h3{
-    color: #fff;
+    color: var(--bg-color-light);
 }
 
 .js h3{
-    color: #323330;
+    color: var(--color-text);
 }
 
 .html{
@@ -301,14 +365,13 @@ h3{
 
 .bi-github, .bi-linkedin, .bi-envelope-fill, .bi-whatsapp, .bi-instagram, .bi-telegram{
     font-size: 1.5rem;
-    color: #555;
 }
 
 .footer{
     width: 100%;
     height: 5vh;
     font-size: .7rem;
-    background-color: #363535b0;
+    background-color: var(--bg-footer);
     
     display: flex;
     align-items: center;
@@ -317,7 +380,7 @@ h3{
 
 .footer p{
     margin: 0;
-    color: #ddd;
+    color: var(--bg-color-light);
 }
 
 @media (max-width: 750px) {
@@ -342,4 +405,32 @@ h3{
     .section-contact {
         flex-direction: column;
     }
+}
+
+/* Modo oscuro */
+
+.dark-mode{
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+}
+
+.dark-mode .container{
+    background: linear-gradient(#333, #444, #555, #666, #777);
+}
+
+.dark-mode .header-title,
+.dark-mode .header-subtitle,
+.dark-mode .link,
+.dark-mode .section-title,
+.dark-mode h3,
+.dark-mode .about-body p{
+    color: var(--text-color-dark);
+}
+
+.dark-mode .skill-name h3{
+    color: var(--bg-color-light);
+}
+
+.dark-mode .js h3{
+    color: var(--color-text);
 }
